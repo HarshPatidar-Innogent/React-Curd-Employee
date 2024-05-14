@@ -7,6 +7,7 @@ import { Table } from "antd";
 import { useNavigate } from "react-router-dom";
 import { EmpDetails } from "./employee.details";
 import { Typography } from "antd";
+import { render } from "@testing-library/react";
 
 const { Title } = Typography;
 

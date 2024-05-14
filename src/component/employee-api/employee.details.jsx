@@ -12,7 +12,7 @@ export function EmpDetails({ visible, onCancel, data }) {
 
   function getEmployee(ID) {
     axios
-      .get(`http://localhost:8080/get/id/${ID}`, {
+      .get(`http://localhost:8080/id/${ID}`, {
         validateStatus: function (status) {
           return status < 500;
         },
@@ -66,7 +66,14 @@ export function EmpDetails({ visible, onCancel, data }) {
           <h5>Employee Name: {emp.empName}</h5>
           <h5>Employee Salary: {emp.sal}</h5>
           <h5>Employee Job: {emp.job}</h5>
-          <h5>Employee Address: {emp.address}</h5>
+          {/* <p>
+            <strong>Address:</strong> {emp.address?.localAddress},{" "}
+            {emp?.address?.city?.cityName}, {emp.address?.city.state.stateName}
+          </p> */}
+          <h5>Address: {emp.address?.localAddress}</h5>
+          <h5>City: {emp.address?.city?.cityName} </h5>
+          <h5>State: {emp.address?.city.state.stateName}</h5>
+          <h5>Country: {emp.address?.city?.state?.country?.countryName}</h5>
         </div>
       </Card>
     </Modal>
